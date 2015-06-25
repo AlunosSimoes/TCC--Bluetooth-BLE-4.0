@@ -1,0 +1,21 @@
+Módulo Bluetooth 4.0 --- HM-10
+
+
+
+Commando          Resposta			Função
+AT----------------OK----------------------------Checar se o HM10 está conectado
+AT+NAME(?)--------OK+Set(name)------------------Configurar o nome do módulo. Se usar o ? ele informa o nome atual
+AT+ADDR?----------OK+ADD:(mac)------------------Informa o MAC address do módulo
+AT+MODE[0/1/2]----OK+Set(mode)------------------0:transmite dados//1:transmite dados e da acesso ao IO//2:transmite dados e permite comandos AT remotos
+AT+ROLE[0/1](?)---OK+Set(role)------------------0:Slave//1:Master//?:Informa o role atual
+AT+CON[mac]-------OK+CONN[A/E/F]----------------Conecta ao modulo com o MAC informado. So funciona em modo Master
+AT+DISC?----------OK+DISC[mac]------------------Busca todos os modulos ao redor e informa os MACs (+nome, se configurado). Maximo de 6 modulos encontrados
+AT+SHOW[0/1]------OK+Set(mode)------------------0:nao mostra nome no DISC//1:mostra os nomes no DICS
+AT+IMME[0/1]------OK+Set(mode)------------------0:conecta assim que ligar//1:conecta somente quando comandado
+
+
+
+
+obs: Usar os comandos sem os []. Por exemplo, para conectar a um MAC usar AT+CON0017EA090909
+     A maioria dos comandos funciona somente quando em modo master (ROLE1) e com IMME1
+     Quando estiver usando o monitor serial do Arduino configurar para "no line ending"

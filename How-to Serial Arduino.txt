@@ -1,0 +1,24 @@
+Guia util:http://www.cyberciti.biz/tips/connect-soekris-single-board-computer-using-minicom.html
+
+
+Usando o terminal de comando do linux (pode ser por SSH) abrimos o Minicom:
+
+	minicom -b 9600 -o -D /dev/ttyAMA0
+
+Alternativamente, pode-se preconfigurar o terminal usando 
+	
+	sudo minicom -s
+
+De modo que apenas o comando "mincom" precisa ser utilizado depois da configuracao.
+
+////////////////////////////////////////////////////////////////////////////////////
+
+Serial Wiring Pi library: http://wiringpi.com/download-and-install/
+Comandos da library:      http://wiringpi.com/reference/serial-library/
+
+Para compilar um codigo que esteja usando a library WiringPi deve-se usar:
+
+	gcc -o nomeprograma nomeprograma.c -lwiringPi
+
+./nomeprograma executa o programa compilado
+Ctrl+C termina a execucao do programa que esta rodando
