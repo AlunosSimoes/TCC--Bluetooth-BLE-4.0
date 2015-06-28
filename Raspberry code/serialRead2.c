@@ -21,15 +21,26 @@ int main ()
   }
 
 // Loop, getting and printing characters
-//  serialPuts (fd,"AT");
-//  serialPuts (fd,"AT");
+  fflush(stdout);
+//  delay(5000);
+//  serialPuts (fd,"AT+MODE?");
+//  serialPuts (fd,"AT+MODE?");
+  serialPuts (fd,"AT");
+  delay(500);
+
+
+
   int b = 0;
+  int a = 0;
 
   for (;;)
   {
     serialPuts (fd,"AT+NAME?");
-    int a=serialDataAvail (fd);
-  for (a>=0;a--;){
+//    delay(500);
+    while((a=serialDataAvail(fd))==0);
+    delay(50);
+    a = serialDataAvail(fd);
+      for (a>=0;a--;){
     putchar (serialGetchar (fd)) ;
 		}
     printf("%d\n",b);;
